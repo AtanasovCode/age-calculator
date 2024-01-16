@@ -1,16 +1,24 @@
 import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
 
+import Calculator from "./components/Calculator";
+
 
 const App = () => {
 
   const theme = {
-    background: "#222",
+    font: "'Poppins', sans-serif",
+    text: "#F2E7E7",
+    background: "#111010",
+    primary: "#0E315B",
+    secondary: "#4EA9FC",
   }
 
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Container></Container>
+      <Container>
+        <Calculator />
+      </Container>
     </ThemeProvider>
   );
 }
@@ -26,9 +34,14 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
   body {
-    min-height: 100vh;
     background-color: ${props => props.theme.background};
+    font-size: 16px;
   }
 `;
 
-const Container = styled.div``;
+const Container = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+`;
