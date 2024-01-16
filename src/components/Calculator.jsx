@@ -1,9 +1,13 @@
 import styled from "styled-components";
 
+import InputYear from "./InputYear";
+
 
 const Calculator = () => {
     return (
-        <Container></Container>
+        <Container>
+            <InputYear />
+        </Container>
     );
 }
 

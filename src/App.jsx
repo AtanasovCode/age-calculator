@@ -11,6 +11,7 @@ const App = () => {
     background: "#111010",
     primary: "#0E315B",
     secondary: "#4EA9FC",
+    accent: "#B4A8A8",
   }
 
   return (
