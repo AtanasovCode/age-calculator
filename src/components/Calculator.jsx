@@ -6,7 +6,9 @@ import InputYear from "./InputYear";
 import Result from "./Result";
 
 
-const Calculator = () => {
+const Calculator = ({
+    theme,
+}) => {
     return (
         <Container>
             <InputYear />
@@ -14,7 +16,7 @@ const Calculator = () => {
             <SubmitContainer>
                 <Line />
                 <Submit>
-                    <SubmitIcon src={Arrow} alt="arrow down icon"  />
+                    <SubmitIcon src={Arrow} alt="arrow down icon" theme={theme} />
                 </Submit>
             </SubmitContainer>
 
@@ -68,4 +70,8 @@ const Submit = styled.div`
 
 const SubmitIcon = styled.img`
     height: 45%;
+
+    ${props => props.theme == "day" && `
+        filter: invert(100%);
+    `}
 `;

@@ -12,6 +12,7 @@ const App = () => {
   const darkTheme = {
     font: "'Poppins', sans-serif",
     text: "#F2E7E7",
+    accentText: "#B4A8A8",
     background: "#111010",
     primary: "#0E315B",
     secondary: "#4EA9FC",
@@ -21,6 +22,7 @@ const App = () => {
   const lightTheme = {
     font: "'Poppins', sans-serif",
     text: "#151515",
+    accentText: "#716F6F",
     background: "#F0F0F0",
     primary: "#FFFFFF",
     secondary: "#854DFF",
@@ -37,7 +39,7 @@ const App = () => {
     <ThemeProvider theme={theme === "night" ? darkTheme : lightTheme}>
       <GlobalStyle />
       <Container>
-        <Calculator />
+        <Calculator theme={theme} />
 
         <ThemeIcon src={DayIcon} value="day" theme={theme} onClick={() => toggleTheme("day")} />
         <ThemeIcon src={NightIcon} value="night" theme={theme} onClick={() => toggleTheme("night")} />
@@ -78,8 +80,5 @@ const ThemeIcon = styled.img`
   bottom: ${props => props.value == "day" ? "8%" : "16%"};
   left: 2%;
   opacity: ${props => props.theme === props.value ? "1" : ".3"};
-
-  ${props => props.theme == "day" && `
-    filter: invert(100%);
-  `}
+  filter: ${props => props.theme === "day" ? "invert(100%)" : "invert(0);"};
 `;

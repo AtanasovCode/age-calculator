@@ -49,7 +49,7 @@ const InputContainer = styled.div`
 `;
 
 const Label = styled.div`
-    color: ${props => props.theme.accent};
+    color: ${props => props.theme.accentText};
 
     /* Heading S */
     font-size: 0.875rem;
