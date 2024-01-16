@@ -31,6 +31,18 @@ const App = () => {
 
   const [theme, setTheme] = useState("night");
 
+  const [date, setDate] = useState({
+    day: "",
+    month: "",
+    year: "",
+  })
+
+  const [age, setAge] = useState({
+    days: "",
+    months: "",
+    years: ""
+  })
+
   const toggleTheme = (value) => {
     setTheme(value);
   }
@@ -39,7 +51,13 @@ const App = () => {
     <ThemeProvider theme={theme === "night" ? darkTheme : lightTheme}>
       <GlobalStyle />
       <Container>
-        <Calculator theme={theme} />
+        <Calculator 
+          theme={theme}
+          date={date}
+          setDate={setDate}
+          age={age}
+          setAge={setAge}
+        />
 
         <ThemeIcon src={DayIcon} value="day" theme={theme} onClick={() => toggleTheme("day")} />
         <ThemeIcon src={NightIcon} value="night" theme={theme} onClick={() => toggleTheme("night")} />

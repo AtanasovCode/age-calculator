@@ -1,26 +1,28 @@
 import styled from "styled-components";
 
-import Arrow from '../assets/arrow.svg';
-
 import InputYear from "./InputYear";
 import Result from "./Result";
 
 
 const Calculator = ({
     theme,
+    date,
+    setDate,
+    age,
+    setAge,
 }) => {
     return (
         <Container>
-            <InputYear />
+            <InputYear
+                theme={theme}
+                date={date}
+                setDate={setDate}
+            />
 
-            <SubmitContainer>
-                <Line />
-                <Submit>
-                    <SubmitIcon src={Arrow} alt="arrow down icon" theme={theme} />
-                </Submit>
-            </SubmitContainer>
-
-            <Result />
+            <Result
+                age={age}
+                setAge={setAge}
+            />
         </Container>
     );
 }
@@ -40,38 +42,4 @@ const Container = styled.div`
     margin: 2rem;
     border-radius: 1.5rem 1.5rem 12.5rem 1.5rem;
     transition: all .6s ease;
-`;
-
-const SubmitContainer = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    width: 100%;
-`;
-
-const Line = styled.div`
-    flex: 100%;
-    height: 1px;
-    background-color: ${props => props.theme.accent};
-`;
-
-const Submit = styled.div`
-    border-radius: 50%;
-    background-color: ${props => props.theme.secondary};
-    display: flex;
-    width: 6rem;
-    height: 6rem;
-    min-width: 6rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-`;
-
-const SubmitIcon = styled.img`
-    height: 45%;
-
-    ${props => props.theme == "day" && `
-        filter: invert(100%);
-    `}
 `;

@@ -1,18 +1,26 @@
+import { useState } from "react";
 import styled from "styled-components";
 
-const Result = () => {
+const Result = ({
+    age,
+    setAge,
+}) => {
+
+    const {days, months, years} = age;
+    
+
     return (
         <Container>
             <Wrapper>
-                <Number>32</Number>
+                <Number> {years ? years : "--"} </Number>
                 <Word>Years</Word>
             </Wrapper>
             <Wrapper>
-                <Number>11</Number>
+                <Number> {months ? months : "--"} </Number>
                 <Word>Months</Word>
             </Wrapper>
             <Wrapper>
-                <Number>14</Number>
+                <Number> {days ? days : "--"} </Number>
                 <Word>Days</Word>
             </Wrapper>
         </Container>
