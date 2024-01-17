@@ -130,7 +130,7 @@ const Label = styled.div`
     margin-bottom: .5rem;
     text-transform: uppercase;
 
-    @media (max-width: 1300px) {
+    @media (max-width: 900px) {
         font-size: 11px;
     }
 `;
@@ -152,6 +152,11 @@ const Input = styled.input`
     ${props => props.$error && `
         border: 1px solid red;
     `}
+
+    @media (max-width: 900px) {
+        font-size: 16px;
+        padding: .4rem .8rem;
+    }
 `;
 
 

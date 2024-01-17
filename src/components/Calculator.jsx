@@ -22,15 +22,10 @@ const Calculator = ({
         const dobDate = new Date(`${dob.year}-${dob.month}-${dob.day}`);
         const currentDate = new Date();
 
-        const years = currentDate.getFullYear() - dobDate.getFullYear();
-
+        let years = currentDate.getFullYear() - dobDate.getFullYear();
         let months = currentDate.getMonth() - dobDate.getMonth();
-        if (currentDate.getDate() < dobDate.getDate()) {
-            months--;
-        }
-
-        // Calculate days
         let days = currentDate.getDate() - dobDate.getDate();
+
         if (days < 0) {
             const lastMonth = new Date(
                 currentDate.getFullYear(),
@@ -41,6 +36,13 @@ const Calculator = ({
             days = daysInLastMonth;
         }
 
+        // Check if birthdate in the current month has not occurred yet
+        if (currentDate.getMonth() < dobDate.getMonth() ||
+            (currentDate.getMonth() === dobDate.getMonth() && currentDate.getDate() < dobDate.getDate())) {
+            years--;
+            months = 12 - Math.abs(months);
+        }
+
         const newAge = {
             days: padWithZero(Math.abs(days)),
             months: padWithZero(Math.abs(months)),
@@ -49,6 +51,7 @@ const Calculator = ({
 
         setAge(newAge);
     };
+
 
     return (
         <Container>
@@ -82,4 +85,8 @@ const Container = styled.div`
     margin: 2rem;
     border-radius: 1.5rem 1.5rem 12.5rem 1.5rem;
     transition: all .6s ease;
+
+    @media (max-width: 1200px) {
+        width: 75%;
+    }
 `;
