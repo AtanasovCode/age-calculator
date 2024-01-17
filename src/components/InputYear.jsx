@@ -7,6 +7,7 @@ const InputYear = ({
     date,
     setDate,
     theme,
+    calculateAge,
 }) => {
 
     const { day, month, year } = date;
@@ -28,6 +29,7 @@ const InputYear = ({
             const tempDate = {day: newDay, month: newMonth, year: newYear};
 
             setDate(tempDate);
+            calculateAge(tempDate);
         } else {
             setError(true);
         }
@@ -127,6 +129,10 @@ const Label = styled.div`
     text-transform: uppercase;
     margin-bottom: .5rem;
     text-transform: uppercase;
+
+    @media (max-width: 1300px) {
+        font-size: 11px;
+    }
 `;
 
 const Input = styled.input`
@@ -135,7 +141,7 @@ const Input = styled.input`
     width: 100%;
     border-radius: .5rem;
     padding: 0.75rem 1.5rem;
-    font-size: 2rem;
+    font-size: 20px;
     background-color: transparent;
     border: 1px solid ${props => props.theme.text};
 
@@ -166,9 +172,9 @@ const Submit = styled.div`
     border-radius: 50%;
     background-color: ${props => props.theme.secondary};
     display: flex;
-    width: 6rem;
-    height: 6rem;
-    min-width: 6rem;
+    width: 4.5rem;
+    height: 4.5rem;
+    min-width: 4.5rem;
     display: flex;
     align-items: center;
     justify-content: center;

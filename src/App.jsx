@@ -91,8 +91,8 @@ const Container = styled.div`
 `;
 
 const ThemeIcon = styled.img`
-  width: 3rem;
-  height: 3rem;
+  width: 2rem;
+  height: 2rem;
   cursor: pointer;
   position: absolute;
   bottom: ${props => props.value == "day" ? "8%" : "16%"};

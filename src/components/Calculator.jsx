@@ -11,12 +11,52 @@ const Calculator = ({
     age,
     setAge,
 }) => {
+
+    const { day, month, year } = date;
+
+    const padWithZero = (value) => {
+        return value < 10 ? `0${value}` : value;
+    };
+
+    const calculateAge = (dob) => {
+        const dobDate = new Date(`${dob.year}-${dob.month}-${dob.day}`);
+        const currentDate = new Date();
+
+        const years = currentDate.getFullYear() - dobDate.getFullYear();
+
+        let months = currentDate.getMonth() - dobDate.getMonth();
+        if (currentDate.getDate() < dobDate.getDate()) {
+            months--;
+        }
+
+        // Calculate days
+        let days = currentDate.getDate() - dobDate.getDate();
+        if (days < 0) {
+            const lastMonth = new Date(
+                currentDate.getFullYear(),
+                currentDate.getMonth() - 1,
+                dobDate.getDate()
+            );
+            const daysInLastMonth = (currentDate - lastMonth) / (1000 * 60 * 60 * 24);
+            days = daysInLastMonth;
+        }
+
+        const newAge = {
+            days: padWithZero(Math.abs(days)),
+            months: padWithZero(Math.abs(months)),
+            years
+        };
+
+        setAge(newAge);
+    };
+
     return (
         <Container>
             <InputYear
                 theme={theme}
                 date={date}
                 setDate={setDate}
+                calculateAge={calculateAge}
             />
 
             <Result

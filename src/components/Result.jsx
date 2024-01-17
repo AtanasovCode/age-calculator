@@ -41,7 +41,7 @@ const Wrapper = styled.div`
 
 const Number = styled.div`
     color: ${props => props.theme.secondary};
-    font-size: 6.5rem;
+    font-size: 4rem;
     font-style: italic;
     font-weight: 800;
     line-height: 110%;
