@@ -100,6 +100,11 @@ const InputWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-start;
+
+    @media (max-width: 675px) {
+        width: 100%;
+        justify-content: center;
+    }
 `;
 
 const ErrorMessage = styled.div`
@@ -115,6 +120,15 @@ const InputContainer = styled.div`
     align-items: flex-start;
     justify-content: center;
     margin-right: 2rem;
+
+    @media (max-width: 657px) {
+        flex: 100%;
+        margin: 0;
+
+        &:nth-child(2) {
+            margin: 0 .5rem;
+        }
+    }
 `;
 
 const Label = styled.div`
@@ -157,6 +171,11 @@ const Input = styled.input`
         font-size: 16px;
         padding: .4rem .8rem;
     }
+
+    @media (max-width: 675px) {
+        font-size: 18px;
+        padding: .6rem 1rem;
+    }
 `;
 
 
@@ -165,6 +184,12 @@ const SubmitContainer = styled.div`
     align-items: center;
     justify-content: flex-end;
     width: 100%;
+
+    @media (max-width: 675px) {
+        justify-content: center;
+        position: relative;
+        margin: 4rem 0;
+    }
 `;
 
 const Line = styled.div`
@@ -184,6 +209,13 @@ const Submit = styled.div`
     align-items: center;
     justify-content: center;
     cursor: pointer;
+
+    @media (max-width: 675px) {
+        position: absolute;
+        width: 4rem;
+        height: 4rem;
+        min-width: 4rem;
+    }
 `;
 
 const SubmitIcon = styled.img`

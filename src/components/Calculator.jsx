@@ -88,5 +88,17 @@ const Container = styled.div`
 
     @media (max-width: 1200px) {
         width: 75%;
+        padding: 3rem;
+    }
+
+    @media (max-width: 900px) {
+        width: 85%;
+        padding: 2.4rem;
+    }
+
+    @media (max-width: 675px) {
+        width: 95%;
+        margin: 0;
+        padding: 3rem 1rem;
     }
 `;

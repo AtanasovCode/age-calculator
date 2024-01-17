@@ -47,6 +47,10 @@ const Number = styled.div`
     line-height: 110%;
     letter-spacing: -0.13rem;
     margin-right: 0.5rem;
+
+    @media (max-width: 675px) {
+        font-size: 3rem;
+    }
 `;
 
 const Word = styled(Number)`

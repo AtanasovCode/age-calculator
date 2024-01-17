@@ -99,4 +99,14 @@ const ThemeIcon = styled.img`
   left: 2%;
   opacity: ${props => props.theme === props.value ? "1" : ".3"};
   filter: ${props => props.theme === "day" ? "invert(100%)" : "invert(0);"};
+
+  @media (max-width: 900px) {
+    bottom: ${props => props.value == "day" ? "auto" : "auto"};
+    top: 4%;
+    left: ${props => props.value == "day" ? "45%" : "55%"};
+  }
+
+  @media (max-width: 675px) {
+    left: ${props => props.value == "day" ? "40%" : "60%"};
+  }
 `;
